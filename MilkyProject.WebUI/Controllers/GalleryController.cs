@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MilkyProject.WebUI.Dtos;
+using MilkyProject.WebUI.Dtos.CategoryDtos;
 using MilkyProject.WebUI.Dtos.GalleryDtos;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace MilkyProject.WebUI.Controllers
 {
@@ -23,6 +25,25 @@ namespace MilkyProject.WebUI.Controllers
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultGalleryDto>>(jsonData);
                 return View(values);
+            }
+            return View();
+        }
+        [HttpGet]
+        public IActionResult CreateGallery()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateGallery(CreateGalleryDto createGalleryDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createGalleryDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7122/api/Gallery", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
             }
             return View();
         }

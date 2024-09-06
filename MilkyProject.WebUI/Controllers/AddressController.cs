@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MilkyProject.WebUI.Dtos.AddressDtos;
+using MilkyProject.WebUI.Dtos.CategoryDtos;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace MilkyProject.WebUI.Controllers
 {
@@ -21,6 +23,25 @@ namespace MilkyProject.WebUI.Controllers
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultAddressDto>>(jsonData);
                 return View(values);
+            }
+            return View();
+        }
+        [HttpGet]
+        public IActionResult CreateAddress()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAddress(CreateAddressDto createAddressDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createAddressDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7122/api/Address", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
             }
             return View();
         }

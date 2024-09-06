@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MilkyProject.WebUI.Dtos;
+using MilkyProject.WebUI.Dtos.CategoryDtos;
 using MilkyProject.WebUI.Dtos.ServiceDtos;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace MilkyProject.WebUI.Controllers
 {
@@ -22,6 +24,25 @@ namespace MilkyProject.WebUI.Controllers
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultServiceDto>>(jsonData);
                 return View(values);
+            }
+            return View();
+        }
+        [HttpGet]
+        public IActionResult CreateService()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateService(CreateServiceDto createServiceDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createServiceDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7122/api/Service", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
             }
             return View();
         }
