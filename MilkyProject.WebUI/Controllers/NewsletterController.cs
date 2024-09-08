@@ -27,6 +27,7 @@ namespace MilkyProject.WebUI.Controllers
             }
             return View();
         }
+
         [HttpGet]
         public IActionResult CreateNewsletter()
         {
@@ -40,6 +41,17 @@ namespace MilkyProject.WebUI.Controllers
             var jsonData = JsonConvert.SerializeObject(createNewsletterDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PostAsync("https://localhost:7122/api/Newsletter", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> DeleteNewsletter(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync("https://localhost:7122/api/Newsletter?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");

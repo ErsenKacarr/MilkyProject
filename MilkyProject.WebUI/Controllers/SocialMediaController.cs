@@ -28,18 +28,28 @@ namespace MilkyProject.WebUI.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult CreateCategory()
+        public IActionResult CreateSocialMedia()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCategory(CreateSocialMediaDto createSocialMediaDto)
+        public async Task<IActionResult> CreateSocialMedia(CreateSocialMediaDto createSocialMediaDto)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createSocialMediaDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await client.PostAsync("https://localhost:7122/api/SocialMedia", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+        public async Task<IActionResult> DeleteSocialMedia(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync("https://localhost:7122/api/SocialMedia?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
