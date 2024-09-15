@@ -1,4 +1,4 @@
-﻿@model List<MilkyProject.WebUI.Dtos.EmployeDtos.ResulEmployeDto>
+﻿@model List<MilkyProject.WebUI.Dtos.EmployeDtos.ResultEmployeDto>
 
 <div class="container-xxl py-5">
     <div class="container">
@@ -14,7 +14,6 @@
                     <img class="img-fluid rounded mb-4" src="@item.imageurl" alt="">
                     <h5>@item.namesurname</h5>
                     <p class="text-primary">@item.job</p>
-                        @await Component.InvokeAsync("_UILayoutSocialMediaComponent")
                 </div>
             </div>
             }
