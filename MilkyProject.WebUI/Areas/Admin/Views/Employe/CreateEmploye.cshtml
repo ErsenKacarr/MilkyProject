@@ -1,0 +1,37 @@
+﻿@model MilkyProject.WebUI.Dtos.EmployeDtos.CreateEmployeDto
+
+@{
+    ViewData["Title"] = "CreateEmploye";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Yeni Çalışan Ekleme Paneli</h4>
+                    <p class="card-description">
+                        Aşağıdaki alanları eksiksiz doldurarak Çalışan ekleme işlemini tamamlayabilirsiniz.
+                    </p>
+                    <form method="post">
+                        <label>Ad Soyad</label>
+                        <input type="text" asp-for="namesurname" class="form-control" />
+                        <br />
+                        <label>Görsel</label>
+                        <input type="text" asp-for="imageurl" class="form-control" />
+                        <br />
+                        <label>İş</label>
+                        <input type="text" asp-for="job" class="form-control" />
+                        <button class="btn btn-info">Çalışan Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

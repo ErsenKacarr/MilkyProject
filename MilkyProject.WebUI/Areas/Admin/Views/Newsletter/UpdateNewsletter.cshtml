@@ -1,0 +1,43 @@
+﻿@model MilkyProject.WebUI.Dtos.NewsletterDtos.UpdateNewsletterDto
+@{
+    ViewData["Title"] = "UpdateNewsletter";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <nav aria-label="breadcrumb">
+            <br />
+            <br />
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Haber Güncelleme Sayfası </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Haber Düzenleme Paneli</h4>
+                    <p class="card-description">
+                        Aşağıdaki tablodan Haber üzerinde işlem yapabilirsiniz
+                    </p>
+                    <div class="table-responsive">
+                        <form method="post">
+                            <label>Haber Id</label>
+                            <input type="text" asp-for="newsletterid" class="form-control" />
+                            <br />
+                            <label>E Mail</label>
+                            <input type="text" asp-for="email" class="form-control" />
+                            <br />
+                            <button class="btn btn-info">Haber Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

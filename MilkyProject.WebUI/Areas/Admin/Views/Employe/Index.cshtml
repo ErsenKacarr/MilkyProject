@@ -1,0 +1,58 @@
+﻿@model List<MilkyProject.WebUI.Dtos.EmployeDtos.ResultEmployeDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Çalışanlar </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Çalışanlar</h4>
+                    <p class="card-description">
+                        Aşagıdaki tablodan  Çalışanların bilgilerini görüntüleyebilir,uzerinde işlem yapabilirsiniz.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Adı Soyadı</th>
+                                    <th>Resim</th>
+                                    <th>Meslek</th>
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.employeId</td>
+                                        <td>@item.namesurname</td>
+                                        <td><img alt="Image placeholder" src="@item.imageurl"></td>
+                                        <td>@item.job</td>
+                                        <td><a href="/Admin/Employe/DeleteEmploye/@item.employeId" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Admin/Employe/UpdateEmploye/@item.employeId" class="btn btn-success">Güncelle</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/Admin/Employe/CreateEmploye" class="btn btn-primary">Yeni Çalışan Girişi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

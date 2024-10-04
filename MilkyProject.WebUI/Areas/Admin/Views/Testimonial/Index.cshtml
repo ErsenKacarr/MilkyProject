@@ -1,0 +1,58 @@
+﻿@model List<MilkyProject.WebUI.Dtos.TestimonialDtos.ResultTestimonialDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Referanslar </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Referanslar</h4>
+                    <p class="card-description">
+                        Aşagıdaki tablodan  referanslar bilgilerini görüntüleyebilir,üzerinde işlem yapabilirsiniz.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Adı</th>
+                                    <th>Resim</th>
+                                    <th>Açıklama</th>
+                                    <th>Meslek</th>
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.testimonialid</td>
+                                        <td>@item.namesurname</td>
+                                        <td><img alt="Image placeholder" src="@item.imageurl"></td>
+                                        <td>@item.description</td>
+                                        <td>@item.profession</td>
+                                        <td><a href="/Admin/Testimonial/DeleteTestimonial/@item.testimonialid" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Admin/Testimonial/UpdateTestimonial/@item.testimonialid" class="btn btn-success">Güncelle</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/Admin/Testimonial/CreateTestimonial" class="btn btn-primary">Yeni Referans Girişi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

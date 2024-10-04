@@ -1,0 +1,56 @@
+﻿@model MilkyProject.WebUI.Dtos.AddressDtos.UpdateAddressDto
+
+@{
+    ViewData["Title"] = "UpdateAddress";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <nav aria-label="breadcrumb">
+            <br />
+            <br />
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Adres Güncelleme Sayfası </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Adres Düzenleme Paneli</h4>
+                    <p class="card-description">
+                        Aşağıdaki tablodan Adres üzerinde işlem yapabilirsiniz
+                    </p>
+                    <div class="table-responsive">
+                        <form method="post">
+                            <label>Adres Id</label>
+                            <input type="text" asp-for="addressid" class="form-control" />
+                            <br />
+                            <label>Adres Detayı</label>
+                            <input type="text" asp-for="addressdetail" class="form-control" />
+                            <br />
+                            <label>Telefon</label>
+                            <input type="text" asp-for="phone" class="form-control" />
+                            <br />
+                            <label>E Mail Adresi</label>
+                            <input type="text" asp-for="emailaddress" class="form-control" />
+                            <br />
+                            <label>Haftaiçi</label>
+                            <input type="text" asp-for="weekdayBusinessHours" class="form-control" />
+                            <br />
+                            <label>Hafta Sonu</label>
+                            <input type="text" asp-for="weekendBusinessHours" class="form-control" />
+                            <br />
+                            <button class="btn btn-info">Adres Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

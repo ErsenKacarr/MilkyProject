@@ -1,0 +1,39 @@
+﻿@model MilkyProject.WebUI.Dtos.SliderDtos.CreateSliderDto
+@{
+    ViewData["Title"] = "CreateSlider";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+   <br />
+   <br />
+   <br />
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Yeni Slider Ekleme Paneli</h4>
+                    <p class="card-description">
+                        Aşağıdaki alanları eksiksiz doldurarak slider ekleme işlemini tamamlayabilirsiniz.
+                    </p>
+                    <form method="post">
+                        <label>Resim</label>
+                        <input type="text" asp-for="imageUrl" class="form-control" />
+                        <br />
+                        <label>Açıklama1</label>
+                        <input type="text" asp-for="description1" class="form-control" />
+                        <br />
+                        <label>Açıklama2</label>
+                        <input type="text" asp-for="description2" class="form-control" />
+                        <br />
+                        <br />
+                        <button class="btn btn-info">Slider Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

@@ -4,7 +4,7 @@ namespace MilkyProject.WebUI.Controllers
 {
     public class UILayoutController : Controller
     {
-        public IActionResult _UILayout()
+        public IActionResult Index()
         {
             return View();
         }

@@ -1,0 +1,41 @@
+﻿@model MilkyProject.WebUI.Dtos.CategoryDtos.UpdateCategoryDto
+
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <nav aria-label="breadcrumb">
+            <br />
+            <br />
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Kategori Güncelleme Sayfası </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Kategori Düzenleme Paneli</h4>
+                    <p class="card-description">
+                        Aşağıdaki tablodan Kategori üzerinde işlem yapabilirsiniz
+                    </p>
+                    <div class="table-responsive">
+                        <form method="post">
+                            <label>Kategori Id</label>
+                            <input type="text" asp-for="CategoryId" class="form-control" />
+                            <br />
+                            <label>Kategori Adı</label>
+                            <input type="text" asp-for="CategoryName" class="form-control" />
+                            <button class="btn btn-info">Kategori Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

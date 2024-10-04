@@ -1,0 +1,51 @@
+﻿@model MilkyProject.WebUI.Dtos.ContactDtos.UpdateContactDto
+@{
+    ViewData["Title"] = "UpdateContact";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <nav aria-label="breadcrumb">
+            <br />
+            <br />
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">İletişim Güncelleme Sayfası </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">İletişim Düzenleme Paneli</h4>
+                    <p class="card-description">
+                        Aşağıdaki tablodan İletişim üzerinde işlem yapabilirsiniz
+                    </p>
+                    <div class="table-responsive">
+                        <form method="post">
+                            <label>İletişim Id</label>
+                            <input type="text" asp-for="contactID" class="form-control" />
+                            <br />
+                            <label>Ad</label>
+                            <input type="text" asp-for="name" class="form-control" />
+                            <br />
+                            <label>E Mail</label>
+                            <input type="text" asp-for="email" class="form-control" />
+                            <br />
+                            <label>Konu</label>
+                            <input type="text" asp-for="subject" class="form-control" />
+                            <br />
+                            <label>Mesaj</label>
+                            <input type="text" asp-for="message" class="form-control" />
+                            <br />
+                            <button class="btn btn-info">İletişim Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

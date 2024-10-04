@@ -1,0 +1,52 @@
+﻿@model MilkyProject.WebUI.Dtos.AddressDtos.CreateAddressDto
+@{
+    ViewData["Title"] = "CreateAddress";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <br />
+        <br />
+        <h3 class="page-title">Yeni Adres Ekleme Sayfası</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Adres İşlemleri</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> Yeni Adres Ekle </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Yeni Adres Ekleme Paneli</h4>
+                    <p class="card-description">
+                        Aşağıdaki alanları eksiksiz doldurarak Adres ekleme işlemini tamamlayabilirsiniz.
+                    </p>
+                    <form method="post">
+                        <label>Adres Detayı </label>
+                        <input type="text" asp-for="addressdetail" class="form-control" />
+                        <br />
+                        <label>Telefon</label>
+                        <input type="text" asp-for="phone" class="form-control" />
+                        <br />
+                        <label>E Mail Adresi </label>
+                        <input type="text" asp-for="emailaddress" class="form-control" />
+                        <br />
+                        <label>Haftaiçi</label>
+                        <input type="text" asp-for="weekdaybusinesshours" class="form-control" />
+                        <br />
+                        <label>Hafta Sonu</label>
+                        <input type="text" asp-for="weekendbusinesshours" class="form-control" />
+                        <br />
+                        <button class="btn btn-info">Adres Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

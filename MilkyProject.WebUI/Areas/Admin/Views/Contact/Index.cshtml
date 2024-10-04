@@ -1,0 +1,56 @@
+﻿@model List<MilkyProject.WebUI.Dtos.ContactDtos.ResultContactDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">İletişim</h4>
+                    <p class="card-description">
+                        Aşagıdaki tablodan  İletişimlar bilgilerini görüntüleyebilir,üzerinde işlem yapabilirsiniz.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Adı</th>
+                                    <th>Konu</th>
+                                    <th>E Mail</th>
+                                    <th>Mesaj İçeriği</th>
+                                    <th>Açıklama</th>
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.contactID</td>
+                                        <td>@item.name</td>
+                                        <td>@item.subject</td>
+                                        <td>@item.email</td>
+                                        <td>@item.message</td>
+                                        <td><a href="/Admin/Contact/DeleteContactl/@item.contactID" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Admin/Contact/UpdateContact/@item.contactID" class="btn btn-success">Güncelle</a></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/Admin/Contact/CreateContact" class="btn btn-primary">Yeni İletişim Girişi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

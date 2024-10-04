@@ -1,0 +1,50 @@
+﻿@model MilkyProject.WebUI.Dtos.ProductDtos.UpdateProductDto
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Ürün Düzenleme Paneli</h4>
+                    <p class="card-description">
+                        Aşağıdaki tablodan ürünler üzerinde işlem yapabilirsiniz
+                    </p>
+                    <div class="table-responsive">
+                        <form method="post">
+
+                            <br /><br />
+                            <input type="hidden" asp-for="productId" />
+                            <input type="hidden" asp-for="categoryId" />
+                            <label>Ürün Adı</label>
+                            <input type="text" asp-for="ProductName" class="form-control" />
+                            <br />
+                            <label>Eski Fiyat</label>
+                            <input type="text" asp-for="OldPrice" class="form-control" />
+                            <br />
+                            <label>Yeni Fiyat</label>
+                            <input type="text" asp-for="NewPrice" class="form-control" />
+                            <br />
+                            <label>Fotoğraf </label>
+                            <input type="text" asp-for="ImageUrl" class="form-control" />
+                            <br />
+                            <label>Kategori Seçin</label>
+                            @Html.DropDownListFor(x => x.categoryId, (List<SelectListItem>)ViewBag.Index, new { @class = "form-control" })
+                            <br />
+
+                            <button class="btn btn-info">Ürünü Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

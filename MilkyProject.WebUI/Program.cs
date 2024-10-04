@@ -1,3 +1,7 @@
+using MilkyProject.DataAccessLayer.Context;
+using MilkyProject.EntityLayer.Concrete;
+using MilkyProject.WebUI.Dtos.RegisterDto;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +10,8 @@ builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+//builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MilkyContext>().AddErrorDescriber<CreateNewUserDto>();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -21,6 +27,14 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Default}/{action=Index}/{id?}"
+    );
+});
 
 app.MapControllerRoute(
     name: "default",

@@ -1,0 +1,61 @@
+﻿@model List<MilkyProject.WebUI.Dtos.ServiceDtos.ResultServiceDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">Servisler </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Hizmetler</h4>
+                    <p class="card-description">
+                        Aşagıdaki tablodan  hizmetlerin bilgilerini görüntüleyebilir,uzerinde işlem yapabilirsiniz.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Hizmet Adı</th>
+                                    <th>Görsel</th>
+                                    <th>Küçük Görsel</th>
+                                    <th>Açıklama</th>
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.serviceid</td>
+                                        <td>@item.title</td>
+                                        <td><img alt="Image placeholder" src="@item.imageurl"></td>
+                                        <td>@item.smallimageurl</td>
+                                        <td>@item.description</td>
+                                        <td><a href="/Admin/Service/DeleteService/@item.serviceid" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/Admin/Service/UpdateService/@item.serviceid" class="btn btn-success">Güncelle</a></td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <a href="/Admin/Service/CreateService" class="btn btn-primary">Yeni Hizmet Girişi</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+

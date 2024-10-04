@@ -1,0 +1,26 @@
+﻿@model MilkyProject.WebUI.Dtos.CategoryDtos.CreateCategoryDto
+@{
+    ViewData["Title"] = "CreateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<form method="post">
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container">
+        <br />
+        <br />
+        <label>Kategori adı</label>
+        <input type="text" asp-for="CategoryName" class="form-control"/>
+        <br />
+        <label>Resim</label>
+        <input type="text" asp-for="imageUrl" class="form-control"/>
+        <br />
+        <button class="btn btn-primary">Kategori ekle</button>
+    </div>
+</form>
+

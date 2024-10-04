@@ -1,0 +1,43 @@
+﻿@model MilkyProject.WebUI.Dtos.AboutDtos.CreateAboutDto
+@{
+    ViewData["Title"] = "CreateAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <br />
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Yeni Hakkımızda Ekleme Paneli</h4>
+                    <p class="card-description">
+                        Aşağıdaki alanları eksiksiz doldurarak hakkımızda ekleme işlemini tamamlayabilirsiniz.
+                    </p>
+                    <form method="post">
+                        <label>Ana Başlık</label>
+                        <input type="text" asp-for="header" class="form-control" />
+                        <br />
+                        <label>Fotoğraf</label>
+                        <input type="text" asp-for="imageurl" class="form-control" />
+                        <br />
+                        <label>Açıklama </label>
+                        <input type="text" asp-for="description" class="form-control" />
+                        <br />
+                        <label>Başlık</label>
+                        <input type="text" asp-for="title" class="form-control" />
+                        <br />
+                        <label>İkon</label>
+                        <input type="text" asp-for="icon" class="form-control" />
+                        <br />
+                        <button class="btn btn-info">Hakkımızda Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

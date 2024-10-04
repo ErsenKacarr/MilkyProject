@@ -1,0 +1,48 @@
+﻿@model MilkyProject.WebUI.Dtos.EmployeDtos.UpdateEmployeDto
+@{
+    ViewData["Title"] = "UpdateEmploye";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <nav aria-label="breadcrumb">
+            <br />
+            <br />
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">Çalışan Güncelleme Sayfası </li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Çalışan Düzenleme Paneli</h4>
+                    <p class="card-description">
+                        Aşağıdaki tablodan Çalışan üzerinde işlem yapabilirsiniz
+                    </p>
+                    <div class="table-responsive">
+                        <form method="post">
+                            <label>Çalışan Id</label>
+                            <input type="text" asp-for="employeId" class="form-control" />
+                            <br />
+                            <label>Ad Soyad</label>
+                            <input type="text" asp-for="namesurname" class="form-control" />
+                            <br />
+                            <label>Görsel</label>
+                            <input type="text" asp-for="imageurl" class="form-control" />
+                            <br />
+                            <label>İş</label>
+                            <input type="text" asp-for="job" class="form-control" />
+                            <br />
+                            <button class="btn btn-info">Çalışan Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
