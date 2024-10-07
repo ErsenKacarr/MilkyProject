@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MilkyProject.WebUI.Dtos;
-using MilkyProject.WebUI.Dtos.CategoryDtos;
 using MilkyProject.WebUI.Dtos.ServiceDtos;
 using Newtonsoft.Json;
 using System.Text;
@@ -70,7 +68,6 @@ namespace MilkyProject.WebUI.Controllers
             }
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> UpdateService(UpdateServiceDto updateServiceDto)
         {

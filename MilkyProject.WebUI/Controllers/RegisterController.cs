@@ -23,35 +23,19 @@ namespace MilkyProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(CreateNewUserDto createNewUserDto)
         {
-            if (createNewUserDto.Password != null)
+            var appUser = new AppUser()
             {
-                AppUser appUser = new AppUser()
-                {
-                    Name = createNewUserDto.Name,
-                    Email = createNewUserDto.Email,
-                    Surname = createNewUserDto.Surname,
-                    UserName = createNewUserDto.Username,
-                };
-
-                var result = await _userManager.CreateAsync(appUser, createNewUserDto.Password);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Login");
-                }
-                else
-                {
-                    foreach (var item in result.Errors)
-                    {
-                        ModelState.AddModelError("", item.Description);
-                    }
-                }
-                return View();
-            }
-            else
+                Name = createNewUserDto.Name,
+                Surname = createNewUserDto.Surname,
+                Email = createNewUserDto.Email,
+                UserName = createNewUserDto.Username
+            };
+            var result = await _userManager.CreateAsync(appUser, createNewUserDto.Password);
+            if (result.Succeeded)
             {
-                ModelState.AddModelError("", "Şifre alanı boş geçilemez");
-                return View();
+                return RedirectToAction("Index", "Login");
             }
+            return View();
         }
     }
 }

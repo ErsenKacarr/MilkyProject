@@ -1,4 +1,6 @@
-﻿<div class="container-xxl py-5">
+﻿@model MilkyProject.WebUI.Dtos.AboutDtos.ResultAboutDto
+
+<div class="container-xxl py-5">
     <div class="container">
         <div class="row g-5 align-items-end">
             <div class="col-lg-6">
@@ -22,24 +24,24 @@
             </div>
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                 <p class="section-title bg-white text-start text-primary pe-3">Hakkımızda</p>
-                <h1 class="mb-4">
-                    Süt Çiftliğimiz ve Tarihçemiz Hakkında Bilgi Edinin
-                </h1>
-                <p class="mb-4">Süt çiftliğimizin tarihi...</p>
+                <h1 class="mb-4">@Model.title</h1>
+                <p class="mb-4">@Model.description</p>
                 <div class="row g-5 pt-2 mb-5">
                     <div class="col-sm-6">
                         <img class="img-fluid mb-4" src="~/dairy-website-template/img/service.png" alt="">
                         <h5 class="mb-3">Özel Hizmetler</h5>
-                        <span>deneme</span>
+                        <span>Bizimle çalışmak isteyen tüm müşterilerimize özel ve güvenilir hizmetler sunuyoruz</span>
                     </div>
                     <div class="col-sm-6">
                         <img class="img-fluid mb-4" src="~/dairy-website-template/img/product.png" alt="">
                         <h5 class="mb-3">Organik Ürünler</h5>
-                        <span>deneme</span>
+                        <span>Son mahsül ürünlerle müşterilerimize en iyi ve organik ürünleri sunuyoruz</span>
                     </div>
                 </div>
-                <a class="btn btn-secondary rounded-pill py-3 px-5" href="">Daha fazla Göster</a>
             </div>
+
+            <a class="btn btn-secondary rounded-pill py-3 px-5" href="/About/Index/">Daha Fazla</a>
+
         </div>
     </div>
 </div>

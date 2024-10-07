@@ -30,6 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\AdminLTE-3.0.4\.github\ISSUE_TEMPLATE\bug-report-for-adminlte-v2-4-x.md" />
+    <None Include="wwwroot\AdminLTE-3.0.4\.github\ISSUE_TEMPLATE\bug-report-for-adminlte-v3-x.md" />
+    <None Include="wwwroot\AdminLTE-3.0.4\.github\ISSUE_TEMPLATE\feature-request-for-adminlte-v3-x.md" />
     <None Include="wwwroot\skydash\.git\COMMIT_EDITMSG" />
     <None Include="wwwroot\skydash\.git\config" />
     <None Include="wwwroot\skydash\.git\description" />

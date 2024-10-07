@@ -1,10 +1,15 @@
 using MilkyProject.DataAccessLayer.Context;
 using MilkyProject.EntityLayer.Concrete;
 using MilkyProject.WebUI.Dtos.RegisterDto;
+using MilkyProject.WebUI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<MilkyContext>();
+
+
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<MilkyContext>().AddErrorDescriber<CustomIdentityValidator>();
 builder.Services.AddHttpClient();
 
 builder.Services.AddControllersWithViews();
@@ -23,7 +28,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseAuthentication();
 app.UseRouting();
 
 app.UseAuthorization();

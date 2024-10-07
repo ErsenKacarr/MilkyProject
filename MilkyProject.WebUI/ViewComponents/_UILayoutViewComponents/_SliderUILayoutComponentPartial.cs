@@ -20,7 +20,7 @@ namespace MilkyProject.WebUI.ViewComponents._UILayoutViewComponents
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultSliderDto>>(jsonData);
-                return View(values.FirstOrDefault());
+                return View(values);
             }
             return View();
 
