@@ -4,6 +4,6 @@
     {
         public int categoryId { get; set; }
         public string categoryName { get; set; }
-        public string imageUrl { get; set; }
+        public string ImageUrl { get; set; }
     }
 }
